@@ -6,5 +6,5 @@ public class Environment {
 
     public static WebDriver webDriver;
 
-    public static String applicationUrl = "https://ekt.rt.ru/packages/tariffs";
+    public static String applicationUrl = "https://ekt.rt.ru/hometv/tariff";
 }
