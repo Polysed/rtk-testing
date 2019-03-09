@@ -1,10 +1,13 @@
 package rtktest.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import rtktest.web.Waiters;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 
+import static rtktest.web.Environment.applicationUrl;
 import static rtktest.web.Environment.webDriver;
 
 /**
@@ -34,6 +37,13 @@ public class RtkHomeTVPage {
 
     public RtkHomeTVPage() {
         PageFactory.initElements(new HtmlElementDecorator(webDriver), this);
+    }
+
+    @Step("Открываем страницу выбора тарифа")
+    public void openPageByUrl() {
+        webDriver.get(applicationUrl);
+        Waiters.waitVisibility(webDriver, orderButtonStart,
+                "Не дождались открытия страницы выбора тарифа");
     }
 }
 
