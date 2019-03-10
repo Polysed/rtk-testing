@@ -48,10 +48,3 @@ public class RtkHomeTVPage {
 }
 
 
-//h3[text() = 'Для семьи ']//ancestor::div[contains(@class, 'rtk-card__description js-dyn-hcell')]//following-sibling::div[contains(@class, 'rtk-card__actions')]//button
-//    h3[text() = 'Для впечатлений ']//ancestor::div[contains(@class, 'rtk-card__description js-dyn-hcell')]//following-sibling::div[contains(@class, 'rtk-card__actions')]//button
-//
-//ancestor::div[contains(@class, 'rtk-card__description js-dyn-hcell')]//following-sibling::div[contains(@class, 'rtk-card__actions')]//button
-//.//label[text() = 'Как вас зовут?']//preceding::input
-
-

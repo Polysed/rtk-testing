@@ -1,11 +1,10 @@
 package rtktest.web;
 
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import io.qameta.allure.Attachment;
 
 import java.text.DecimalFormat;
 
@@ -21,11 +20,6 @@ public class Utils {
     @Attachment
     public static byte[] makeScreenshoot() {
         return ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.BYTES);
-    }
-
-    public static void scrollIntoElement(WebElement webElement) {
-        Actions actions = new Actions(webDriver);
-        actions.moveToElement(webElement).build().perform();
     }
 
     public static void scrollIntoElementWithJavaScript(WebElement webElement) {

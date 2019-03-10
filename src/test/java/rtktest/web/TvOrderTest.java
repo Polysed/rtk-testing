@@ -13,6 +13,7 @@ import rtktest.web.pages.RtkOrderPage;
 
 import java.io.IOException;
 
+import static rtktest.web.Environment.webDriver;
 import static rtktest.web.Utils.scrollIntoElementWithJavaScript;
 
 public class TvOrderTest {
@@ -30,9 +31,7 @@ public class TvOrderTest {
         chooseTariff.orderButtonAdvanced.click();
         // Переходим на страницу оформления заявки
        RtkOrderPage orderPage = new RtkOrderPage();
-//       Waiters.waitVisibility(webDriver, orderPage.inputFio, "Не дождались появления формы заявки");
-//
-        orderPage.name.isDisplayed();
+       Waiters.waitVisibility(webDriver, orderPage.name, "Не дождались появления формы заявки");
 
         //заполним параметры заявки
         TestDataClass data = new TestDataClass();
@@ -45,24 +44,14 @@ public class TvOrderTest {
         Waiters.freezeInMilliSeconds(1000);
         orderPage.house.sendKeys(order.getHouse());
         orderPage.apartment.sendKeys(order.getApartment());
-        orderPage.phone.sendKeys(order.getPhone());
+        orderPage.phone.clear();
+        orderPage.phone.sendKeys("+"+order.getPhone());
         orderPage.email.sendKeys(order.getEmail());
-//        Waiters.freezeInMilliSeconds(1000);
         orderPage.comment.getLocation();
         Waiters.freezeInMilliSeconds(2000);
         orderPage.comment.sendKeys(order.getComment());
 
-//        orderPage.inputFio.sendKeys(order.getProperty("fio"));
-//        orderPage.inputStreet.sendKeys(order.getProperty("street"));
-//        orderPage.inputHouse.sendKeys(order.getProperty("house"));
-//        orderPage.inputApartment.sendKeys(order.getProperty("apartment"));
-//        orderPage.inputPhone.sendKeys(order.getProperty("phone"));
-//        orderPage.inputEmail.sendKeys(order.getProperty("email"));
-//        orderPage.comment.sendKeys(order.getProperty("comment"));
-
         // Отправим заявку на оформление
-//        scrollIntoElement(orderPage.collapser);
-
         orderPage.collapser.click();
         Waiters.freezeInMilliSeconds(1000);
         scrollIntoElementWithJavaScript(orderPage.sendButton);
@@ -72,5 +61,4 @@ public class TvOrderTest {
         Assert.assertTrue(successMessage.orderId.isDisplayed());
 
     }
-
 }
